@@ -40,6 +40,16 @@ public class DBService {
 		
 
 		Cliente c1 = new Cliente(null, "Samuela Covas", "539.527.150-34", "(88)97979-7071");
+		
+		Cliente c2 = new Cliente(null, "Sauron Siqueira", "224.620.580-87", "(91)93978-1515");
+		
+		Cliente c3 = new Cliente(null, "Pâmelo Novaes", "194.950.560-04", "(91)94365-9070");
+		
+		Cliente c4 = new Cliente(null, "Priscilo Alves", "882.317.350-70", "(83)93232-6168");
+		
+		Cliente c5 = new Cliente(null, "Xeron Istone", "436.918.320-08", "(80)94554-7863");
+		
+		
 
 		OS os1 = new OS(null, Prioridade.ALTA, "Teste OS", Status.ANDAMENTO, t1, c1);
 
@@ -47,7 +57,7 @@ public class DBService {
 		c1.getList().add(os1);
 
 		tecnicoRepository.saveAll(Arrays.asList(t1,t2,t3,t4,t5));
-		clienteRepository.saveAll(Arrays.asList(c1));
+		clienteRepository.saveAll(Arrays.asList(c1,c2,c3,c4,c5));
 		osRepository.saveAll(Arrays.asList(os1));
 	}
 }
