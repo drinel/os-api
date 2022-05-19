@@ -1,6 +1,6 @@
 package com.order.os.resources.exceptions;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,8 +14,8 @@ public class ValidationError extends StandardError{
 		super();
 	}
 
-	public ValidationError(LocalDateTime timestamp, Integer status, String error) {
-		super(timestamp, status, error);
+	public ValidationError(Instant instant, Integer status, String error) {
+		super(instant, status, error);
 	}
 
 	public List<FieldMessage> getErrors() {

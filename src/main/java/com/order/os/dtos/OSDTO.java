@@ -1,7 +1,7 @@
 package com.order.os.dtos;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 import javax.validation.constraints.NotEmpty;
 
@@ -9,17 +9,16 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.order.os.domain.OS;
 import com.order.os.domain.enums.Prioridade;
 import com.order.os.domain.enums.Status;
-import com.order.os.domain.enums.Prioridade;
 
 public class OSDTO implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
-	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
-	private LocalDateTime dataAbertura;
-	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
-	private LocalDateTime dataFechamento;
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm", timezone = "Brazil/East")
+	private Instant dataAbertura;
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm", timezone = "Brazil/East")
+	private Instant dataFechamento;
 	
 	private Integer prioridade;
 	
@@ -58,19 +57,19 @@ public class OSDTO implements Serializable{
 		this.id = id;
 	}
 
-	public LocalDateTime getDataAbertura() {
+	public Instant getDataAbertura() {
 		return dataAbertura;
 	}
 
-	public void setDataAbertura(LocalDateTime dataAbertura) {
+	public void setDataAbertura(Instant dataAbertura) {
 		this.dataAbertura = dataAbertura;
 	}
 
-	public LocalDateTime getDataFechamento() {
+	public Instant getDataFechamento() {
 		return dataFechamento;
 	}
 
-	public void setDataFechamento(LocalDateTime dataFechamento) {
+	public void setDataFechamento(Instant dataFechamento) {
 		this.dataFechamento = dataFechamento;
 	}
 

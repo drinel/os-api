@@ -1,6 +1,6 @@
 package com.order.os.services;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 
@@ -62,7 +62,7 @@ public class OSService {
 		newObj.setCliente(cli);
 		
 		if(newObj.getStatus().getCod().equals(2)) {
-			newObj.setDataFechamento(LocalDateTime.now());
+			newObj.setDataFechamento(Instant.now());
 		}
 		
 		return repository.save(newObj);

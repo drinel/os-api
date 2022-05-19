@@ -1,6 +1,6 @@
 package com.order.os.domain;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.Objects;
 
 import javax.persistence.Entity;
@@ -20,10 +20,10 @@ public class OS {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
-	private LocalDateTime dataAbertura;
-	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
-	private LocalDateTime dataFechamento;
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm", timezone = "Brazil/East")
+	private Instant dataAbertura;
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm", timezone = "Brazil/East")
+	private Instant dataFechamento;
 	
 	private Integer prioridade;
 	
@@ -41,7 +41,7 @@ public class OS {
 
 	public OS() {
 		super();
-		this.setDataAbertura(LocalDateTime.now());
+		this.setDataAbertura(Instant.now());
 		this.setPrioridade(Prioridade.BAIXA);
 		this.setStatus(Status.ABERTO);
 		
@@ -51,7 +51,7 @@ public class OS {
 			String observacoes, Status status, Tecnico tecnico, Cliente cliente) {
 		super();
 		this.id = id;
-		this.setDataAbertura(LocalDateTime.now());
+		this.setDataAbertura(Instant.now());
 		this.prioridade = (prioridade == null) ? 0 : prioridade.getCod();
 		this.observacoes = observacoes;
 		this.status = (status == null)? 0 : status.getCod();
@@ -67,19 +67,19 @@ public class OS {
 		this.id = id;
 	}
 
-	public LocalDateTime getDataAbertura() {
+	public Instant getDataAbertura() {
 		return dataAbertura;
 	}
 
-	public void setDataAbertura(LocalDateTime dataAbertura) {
+	public void setDataAbertura(Instant dataAbertura) {
 		this.dataAbertura = dataAbertura;
 	}
 
-	public LocalDateTime getDataFechamento() {
+	public Instant getDataFechamento() {
 		return dataFechamento;
 	}
 
-	public void setDataFechamento(LocalDateTime dataFechamento) {
+	public void setDataFechamento(Instant dataFechamento) {
 		this.dataFechamento = dataFechamento;
 	}
 

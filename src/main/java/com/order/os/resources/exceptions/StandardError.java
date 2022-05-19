@@ -1,7 +1,7 @@
 package com.order.os.resources.exceptions;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -9,8 +9,8 @@ public class StandardError implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
-	private LocalDateTime timestamp;
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm", timezone = "Brazil/East")
+	private Instant instant;
 	private Integer status;
 	private String error;
 	
@@ -18,17 +18,17 @@ public class StandardError implements Serializable{
 		super();
 		
 	}
-	public StandardError(LocalDateTime timestamp, Integer status, String error) {
+	public StandardError(Instant instant, Integer status, String error) {
 		super();
-		this.timestamp = timestamp;
+		this.instant = instant;
 		this.status = status;
 		this.error = error;
 	}
-	public LocalDateTime getTimestamp() {
-		return timestamp;
+	public Instant getInstant() {
+		return instant;
 	}
-	public void setTimestamp(LocalDateTime timestamp) {
-		this.timestamp = timestamp;
+	public void setInstant(Instant instant) {
+		this.instant = instant;
 	}
 	public Integer getStatus() {
 		return status;
