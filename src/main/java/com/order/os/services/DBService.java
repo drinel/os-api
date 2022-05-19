@@ -51,13 +51,29 @@ public class DBService {
 		
 		
 
-		OS os1 = new OS(null, Prioridade.ALTA, "Teste OS", Status.ANDAMENTO, t1, c1);
+		OS os1 = new OS(null, Prioridade.ALTA, "Trocar fonte do notebook", Status.ANDAMENTO, t1, c1);
+		OS os2 = new OS(null, Prioridade.BAIXA, "Trocar placa mãe", Status.ANDAMENTO, t2, c2);
+		OS os3 = new OS(null, Prioridade.ALTA, "Formatar para linux", Status.ANDAMENTO, t3, c3);
+		OS os4 = new OS(null, Prioridade.MEDIA, "Ativar antivirus", Status.ANDAMENTO, t4, c4);
+		OS os5 = new OS(null, Prioridade.MEDIA, "Criar sistema full stack", Status.ANDAMENTO, t5, c5);
+		OS os6 = new OS(null, Prioridade.BAIXA, "Trocar pasta térmica", Status.ANDAMENTO, t1, c1);
 
 		t1.getList().add(os1);
+		t1.getList().add(os6);
+		t2.getList().add(os2);
+		t3.getList().add(os3);
+		t4.getList().add(os4);
+		t5.getList().add(os5);
+
 		c1.getList().add(os1);
+		c2.getList().add(os2);
+		c3.getList().add(os3);
+		c4.getList().add(os4);
+		c5.getList().add(os5);
+		c1.getList().add(os6);
 
 		tecnicoRepository.saveAll(Arrays.asList(t1,t2,t3,t4,t5));
 		clienteRepository.saveAll(Arrays.asList(c1,c2,c3,c4,c5));
-		osRepository.saveAll(Arrays.asList(os1));
+		osRepository.saveAll(Arrays.asList(os1,os2,os3,os4,os5));
 	}
 }
